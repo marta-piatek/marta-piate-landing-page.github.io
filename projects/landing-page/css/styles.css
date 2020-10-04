@@ -10,39 +10,266 @@
 
 
 /* ---- Base Rules ---- */
+/* Mobile screen */
+/*.container {
+display: grid;
+height: 100vh;
+grid-template-columns: 1r;
+grid-template-rows: auto 1fr auto;
+grid-template-areas: 
+"hd"
+"main"
+"ft"
+}
+
+.page__header {
+    grid-area: hd;
+}
+
+.main_content {
+    grid-area: main;
+    overflow: auto;
+}
+
+.page_footer {
+    grid-area: ft;
+}
+/*Medium screen*/
+ /*@media(min-width:800px) and (max-width: 1100px) {
+    .container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr;
+        grid-template: 
+        "hd hd hd hd hd hd hd hd"
+        "main main main main main main main main"
+        "ft ft ft ft ft ft ft ft"
+    }
+} 
+/*Large screen*/
+ /*@media(min-width: 1101px) {
+    .container {
+        display: grid;
+        height: 100vh
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template: 
+        "hd hd hd hd hd hd hd hd"
+        "main main main main main main main main"
+        "ft ft ft ft ft ft ft ft"
+    }
+
+} */
+/*Mobile screen*/
+@media(max-width:600px) {
+    .container {
+        font-size: 15px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .navbar__menu li {
+        display: inline-block;
+        font-size: 13px;
+        font-weight: bold;
+        padding: 2em;
+    }
+
+    .page__footer p {
+        display: inline-block;
+        font-size: medium;
+        font-weight: bold;
+        padding: 1.5em;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 1em;
+    }
+
+    .image_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 4em;
+    }
+
+    .image_box {
+        width: 250px;
+        height: 250px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .form {
+        padding-top: 7em;
+    }
+
+    .form-subscribe-button {
+        font-size: 15px;
+        height: 30px;
+        margin-top: 2em;
+    }
+
+    .social-icon {
+        width: 25px;
+        height: 25px;
+        margin-left: 2em;
+    }
+}
+
+/*Medium screen*/
+ @media(min-width:600px) and (max-width: 1100px) {
+    .container {
+        font-size: 18px;
+        font-family: 'Times New Roman', Times, serif ;
+    }
+
+    .navbar__menu li {
+        display: inline-block;
+        margin-left: 20px;
+        font-size: medium;
+        font-weight: bold;
+        padding: 3em;
+    }
+
+    .page__footer p {
+        display: inline-block;
+        font-size: large;
+        font-weight: bold;
+        padding: 2em;
+    }
+
+    h1 {
+        font-size: 3.5em;
+        padding: 1em;
+    }
+
+    .image_container {
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .image_box {
+        width: 250px;
+        height: 250px;
+    }
+
+    .form {
+        padding-top: 5em;
+    }
+
+    .form-subscribe-button {
+        font-size: 18px;
+        height: 40px;
+        margin-top: 2em;
+    }
+
+    .social-icon {
+        width: 35px;
+        height: 35px;
+        margin-left: 2em;
+    }
+ }
+
+ /*Large screen*/
+@media(min-width:1001px) {
+    .container {
+        font-size: 20px;
+        font-family: 'Merriweather', serif;
+    }
+
+    .navbar__menu li {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        padding-top: 3em;
+        padding-bottom: 3em;
+        margin-left: 10em;
+        margin-right: 10em;
+    }
+
+    .navbar__menu {
+        text-align: center;
+    }
+
+    .page__footer p {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 3em
+    }
+
+    h1 {
+      font-size: 5em;
+      padding-top: 1em;
+      text-align: center;
+    }
+
+    .image_container {
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .image_box {
+        width: 350px;
+        height: 350px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .form {
+        padding-top: 7em;
+    }
+
+    .form-subscribe-button {
+        font-size: 22px;
+        height: 60px;
+        margin-top: 2em;
+    }
+
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        margin-left: 2.5em;
+    }
+}  
+
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
     margin: 0;
     font-family: 'Merriweather', serif;
-    color: #fff;
 }
-
 
 /* Typeography General*/
 h1 {
     font-family: 'Fira Sans', sans-serif;
-    font-size: 3em;
-    margin: 2em 1rem;
+    color: grey;
 }
 
 @media only screen and (min-width: 35em){
     h1 {
-        font-size: 7em;
         margin: 2em 4rem 1em;
+        position: relative;
     }
 }
 
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1px solid white;
     font-family: 'Oxygen', Sans-Serif;
-    font-size: 3em;
-    color: #fff;
+    color: white;
 }
 
 p {
     line-height: 1.6em;
-    color: #eee;
+    color: white;
 }
 
 /* ---- Layout Rules ---- */
@@ -51,40 +278,34 @@ main {
 }
 
 .main-hero {
-    min-height: 40vh;
     padding-top: 3em;
 }
 
 section {
     position: relative;
-    min-height: 80vh;
+   
 }
-
 
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
 .navbar__menu ul {
-    padding-left: 0;
     margin: 0;
     text-align: right;
 }
 
-.navbar__menu li {
-    display: inline-block;
+.navbar__menu {
+    background-color: black;
 }
+
 
 .navbar__menu .menu__link {
     display: block;
-    padding: 1em;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
 }
 
 .navbar__menu .menu__link:hover {
     background: #333;
-    color: #fff;
+    color: grey;
     transition: ease 0.3s all;
 }
 
@@ -100,14 +321,37 @@ section {
 /* Footer Styles */
 .page__footer {
     background: #000;
-    padding: 3em;
-    color: #fff;
 }
 
 .page__footer p{
-    color: #fff;
+    color: grey;
 }
 
+/* Subscribe form styles*/
+.form {
+    text-align: center;
+    border: 1px solid white;
+    padding-bottom: 2em;
+    background-color: white;
+}
+
+.form-subscribe-text {
+    color: black; 
+    font-weight: bold;
+}
+
+.form-subscribe-button {
+    font-weight: bold;
+    background-color: grey;
+    color: black;
+    border: 3px solid black;
+}
+
+.social {
+    text-align: center;
+    padding-top: 2em;
+    margin-top: 5em;
+}
 
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
