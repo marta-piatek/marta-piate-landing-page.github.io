@@ -18,6 +18,23 @@
  * 
 */
 
+const myNavigation = []
+const h2Elements = document.getElementsByTagName("h2")
+
+for (let i = 0; i < h2Elements.length; i++) {
+    myNavigation.push(h2Elements[i].innerText)
+}
+
+const navList = document.querySelector('#navbar__list');
+for (let i=0; i < myNavigation.length; i++) {
+    const anchor = document.createElement('a');
+    anchor.href = '#section' + (i+1);
+    anchor.innerText = myNavigation[i];
+
+    const section = document.createElement('li');
+    section.appendChild(anchor);
+    navList.appendChild(section);
+}
 
 /**
  * End Global Variables
