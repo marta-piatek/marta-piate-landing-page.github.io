@@ -332,15 +332,15 @@ section {
 }
 
 .form-subscribe-text {
-    color: black; 
+    color: grey; 
     font-weight: bold;
 }
 
 .form-subscribe-button {
     font-weight: bold;
     background-color: grey;
-    color: black;
-    border: 3px solid black;
+    color: white;
+    border: 3px solid grey;
 }
 
 /* Social icons styles*/
@@ -445,17 +445,27 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
+section.active {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-section.your-active-class .landing__container::before {
+section.active-highlighted {
+    background: rgb(255, 0, 0);
+    background: linear-gradient(0deg, rgba(255, 0, 0, 0.6) 0%, rgba(255, 0, 0, 0) 100%);
+}
+
+/* section.active {
+    background: rgb(255, 0, 0);
+    background: linear-gradient(0deg, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0) 100%);
+} */
+
+section.active .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.active .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
