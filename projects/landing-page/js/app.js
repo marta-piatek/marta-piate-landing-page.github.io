@@ -14,7 +14,7 @@
 */
 
 /**
- * Define Global Variables
+ * Define Global  iables
  * 
 */
 
