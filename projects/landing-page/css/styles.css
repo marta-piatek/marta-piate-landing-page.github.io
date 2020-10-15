@@ -325,6 +325,21 @@ section {
     z-index: 5;
 }
 
+/* Back to top button style */
+
+#topButton {
+background-color: white;
+color: black;
+font-size: 16px;
+border-radius: 5px;
+padding: 10px;
+position: fixed;
+bottom: 20px;
+right: 20px;
+z-index: 6;
+display: none;
+}
+
 /* Footer Styles */
 .page__footer {
     background: #000;

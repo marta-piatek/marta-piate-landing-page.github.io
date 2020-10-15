@@ -59,6 +59,23 @@ for (let i = 0; i < section_highlighted.length; i++) {
     });
 }  
 
+/* Back to top button */
+myButton = document.getElementById("topButton");
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.documentElement.scrollTop > 20) {
+        myButton.style.display = "block";
+    } else {
+        myButton.style.display = "none";
+    }
+}
+
+function buttonFunction() {
+    document.documentElement.scrollTop = 0;
+}
+
+
 
 // const mouseEvent = document.querySelector('body');
 //     document.body.addEventListener('mouseover', function() {
