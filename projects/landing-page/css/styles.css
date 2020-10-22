@@ -303,8 +303,14 @@ section {
 
 .navbar__menu {
     background-color: black;
+    /* position: fixed; 
+    top: 0;
+    transition: top 0.5s ease-in-out; */
 }
 
+/* .navbar__menu.hide {
+    top: -120px;
+ }  */
 
 /* .navbar__menu .menu__link {
     display: inline-block;
@@ -508,4 +514,19 @@ section.active .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+
+/* Collapsible sections*/
+.collapsible:hover, .activeSection {
+    background-color: grey;
+    padding: 10px;
+  }
+
+.collapsible {
+    cursor: pointer;
+}
+
+.sectionContent {
+    display: none;
+    overflow: hidden;
 }

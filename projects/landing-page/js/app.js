@@ -14,7 +14,7 @@
 */
 
 /**
- * Define Global  iables
+ * Define Global  variables
  * 
 */
 
@@ -28,12 +28,32 @@ for (let i = 0; i < h2Elements.length; i++) {
 const navList = document.querySelector('#navbar__list');
 for (let i=0; i < myNavigation.length; i++) {
     const anchor = document.createElement('a');
-    anchor.href = '#section' + (i+1);
+    anchor.href = '#';
     anchor.innerText = myNavigation[i];
 
     const section = document.createElement('li');
     section.appendChild(anchor);
     navList.appendChild(section);
+
+    section.addEventListener('click', function (event) {
+        console.log("eventtttt")
+        console.log(event)
+    }) 
+}
+
+/* Collapsible sections */
+let collapse = document.getElementsByClassName('collapsible');
+let i;
+for (i = 0; i < collapse.length; i++) {
+    collapse[i].addEventListener('click', function () {
+        this.classList.toggle('activeSection');
+        let text = this.nextElementSibling;
+        if (text.style.display === 'block') {
+            text.style.display = 'none';
+        } else {
+            text.style.display = 'block';
+        }
+    });
 }
 
 // let active = document.querySelector('.active');
@@ -75,6 +95,13 @@ function buttonFunction() {
     document.documentElement.scrollTop = 0;
 }
 
+/* Hide navigation bar when scrolling the page */
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        return document.querySelector(".navbar__menu").classList.add('hide')
+    }
+    return document.querySelector(".navbar__menu").classList.remove('hide')
+});
 
 
 // const mouseEvent = document.querySelector('body');
