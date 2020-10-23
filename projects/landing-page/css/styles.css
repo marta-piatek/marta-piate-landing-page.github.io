@@ -530,3 +530,7 @@ section.active .landing__container::after {
     display: none;
     overflow: hidden;
 }
+
+html {
+    scroll-behavior: smooth;
+}
