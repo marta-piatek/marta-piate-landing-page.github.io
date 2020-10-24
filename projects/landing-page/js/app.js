@@ -44,29 +44,20 @@ for (let i=0; i < myNavigation.length; i++) {
     section.appendChild(anchor);
     navList.appendChild(section);
 
+    // Event Listener to scroll to selected section from the Navigation Bar
     anchor.addEventListener('click', function (event) {
+        const elementPosition = h2Elements[i].getBoundingClientRect().top
         const navSize = document.getElementById('navbar__list').clientHeight
-        const offsetPosition = elementsPosition[i] - navSize
 
-        window.scrollTo({
-            top: offsetPosition
-        })
+        window.scrollBy(0, elementPosition - navSize)
     })
 
+    // Event Listener to scroll to selected section from the Navigation Bar
     section.addEventListener('click', function (event) {
         const elementPosition = h2Elements[i].getBoundingClientRect().top
         const navSize = document.getElementById('navbar__list').clientHeight
-        let offsetPosition
 
-        if (elementPosition < 0) {
-            offsetPosition = -(-(elementPosition) + navSize)
-        } else if (elementPosition > 0 && elementPosition < navSize) {
-            offsetPosition = -(navSize - elementPosition)
-        } else if (elementPosition > navSize) {
-            offsetPosition = elementPosition - navSize
-        }
-
-        window.scrollBy(0, offsetPosition)
+        window.scrollBy(0, elementPosition - navSize)
     }) 
 }
 
