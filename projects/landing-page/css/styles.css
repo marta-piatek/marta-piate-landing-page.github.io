@@ -487,6 +487,11 @@ section.active-highlighted {
     background: linear-gradient(0deg, rgba(255, 0, 0, 0.6) 0%, rgba(255, 0, 0, 0) 100%);
 }
 
+li.active-highlighted {
+    background: rgb(255, 0, 0);
+    background: linear-gradient(0deg, rgba(255, 0, 0, 0.6) 0%, rgba(255, 0, 0, 0) 100%);
+}
+
 /* section.active {
     background: rgb(255, 0, 0);
     background: linear-gradient(0deg, rgba(255, 0, 0, 0.5) 0%, rgba(255, 0, 0, 0) 100%);

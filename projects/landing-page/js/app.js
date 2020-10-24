@@ -24,7 +24,6 @@ const h2Elements = document.getElementsByTagName("h2")
 
 /* Gets the position of each section */
 for (let i = 0; i < h2Elements.length; i++) {
-    console.log(h2Elements[i].getBoundingClientRect().top)
     elementsPosition[i] = h2Elements[i].getBoundingClientRect().top
 }
 
@@ -41,6 +40,7 @@ for (let i=0; i < myNavigation.length; i++) {
     anchor.innerText = myNavigation[i];
 
     const section = document.createElement('li');
+    section.id = `li__section${i+1}`
     section.appendChild(anchor);
     navList.appendChild(section);
 
@@ -54,12 +54,19 @@ for (let i=0; i < myNavigation.length; i++) {
     })
 
     section.addEventListener('click', function (event) {
+        const elementPosition = h2Elements[i].getBoundingClientRect().top
         const navSize = document.getElementById('navbar__list').clientHeight
-        const offsetPosition = elementsPosition[i] - navSize
+        let offsetPosition
 
-        window.scrollTo({
-            top: offsetPosition
-        })
+        if (elementPosition < 0) {
+            offsetPosition = -(-(elementPosition) + navSize)
+        } else if (elementPosition > 0 && elementPosition < navSize) {
+            offsetPosition = -(navSize - elementPosition)
+        } else if (elementPosition > navSize) {
+            offsetPosition = elementPosition - navSize
+        }
+
+        window.scrollBy(0, offsetPosition)
     }) 
 }
 
@@ -91,12 +98,15 @@ for (i = 0; i < collapse.length; i++) {
 const section_highlighted = document.getElementsByClassName('active');
 for (let i = 0; i < section_highlighted.length; i++) {
     let section = section_highlighted[i]
+    const navItem = document.getElementById(`li__section${i+1}`)
 
     section.addEventListener('mouseover', function() {
+        navItem.className = 'active-highlighted'
         section.className = 'active-highlighted'
     });
         
     section.addEventListener('mouseout', function() {
+        navItem.className = ''
         section.className = 'active'  
     });
 }  
