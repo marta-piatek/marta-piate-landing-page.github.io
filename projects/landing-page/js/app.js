@@ -16,11 +16,21 @@
 /**
  * Define Global  variables
  * 
-*/
-/* Dynamic navigation as an unordered list */
+ */
+
+const elementsPosition = []
 const myNavigation = []
 const h2Elements = document.getElementsByTagName("h2")
 
+/* Gets the position of each section */
+for (let i = 0; i < h2Elements.length; i++) {
+    console.log(h2Elements[i].getBoundingClientRect().top)
+    elementsPosition[i] = h2Elements[i].getBoundingClientRect().top
+}
+
+console.log(elementsPosition)
+
+/* Dynamic navigation as an unordered list */
 for (let i = 0; i < h2Elements.length; i++) {
     myNavigation.push(h2Elements[i].innerText)
 }
@@ -28,7 +38,6 @@ for (let i = 0; i < h2Elements.length; i++) {
 const navList = document.querySelector('#navbar__list');
 for (let i=0; i < myNavigation.length; i++) {
     const anchor = document.createElement('a');
-    anchor.href = '#';
     anchor.innerText = myNavigation[i];
 
     const section = document.createElement('li');
@@ -36,19 +45,17 @@ for (let i=0; i < myNavigation.length; i++) {
     navList.appendChild(section);
 
     anchor.addEventListener('click', function (event) {
-        document.getElementsByTagName("h2")[1].scrollIntoView(true)
-        const height = document.getElementById('navbar__list').scrollHeight
-        var scrolledY = window.scrollY;
+        const navSize = document.getElementById('navbar__list').clientHeight
+        const offsetPosition = elementsPosition[i] - navSize
 
-        if(scrolledY){
-            window.scroll(0, scrolledY - height);
-        }
+        window.scrollTo({
+            top: offsetPosition
+        })
     })
 
     section.addEventListener('click', function (event) {
-        const elementPosition = document.getElementsByTagName("h2")[i].getBoundingClientRect().top
-        const navOffset = document.getElementById('navbar__list').clientHeight
-        const offsetPosition = elementPosition - navOffset
+        const navSize = document.getElementById('navbar__list').clientHeight
+        const offsetPosition = elementsPosition[i] - navSize
 
         window.scrollTo({
             top: offsetPosition
