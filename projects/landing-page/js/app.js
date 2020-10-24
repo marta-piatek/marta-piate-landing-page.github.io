@@ -1,21 +1,21 @@
 /**
- * 
+ *
  * Manipulating the DOM exercise.
  * Exercise programmatically builds navigation,
  * scrolls to anchors from navigation,
  * and highlights section in viewport upon scrolling.
- * 
+ *
  * Dependencies: None
- * 
+ *
  * JS Version: ES2015/ES6
- * 
+ *
  * JS Standard: ESlint
- * 
+ *
 */
 
 /**
  * Define Global  variables
- * 
+ *
  */
 
 const elementsPosition = []
@@ -49,7 +49,7 @@ for (let i=0; i < myNavigation.length; i++) {
         const elementPosition = h2Elements[i].getBoundingClientRect().top
         const navSize = document.getElementById('navbar__list').clientHeight
 
-        window.scrollBy(0, elementPosition - navSize)
+        window.scrollBy(0, elementPosition - navSize);
     })
 
     // Event Listener to scroll to selected section from the Navigation Bar
@@ -57,8 +57,8 @@ for (let i=0; i < myNavigation.length; i++) {
         const elementPosition = h2Elements[i].getBoundingClientRect().top
         const navSize = document.getElementById('navbar__list').clientHeight
 
-        window.scrollBy(0, elementPosition - navSize)
-    }) 
+        window.scrollBy(0, elementPosition - navSize);
+    })
 }
 
 /* Collapsible sections */
@@ -86,6 +86,7 @@ for (i = 0; i < collapse.length; i++) {
 //     event.style.color = '';
 // });
 
+/* Highlighting section and corresponding navigation item*/
 const section_highlighted = document.getElementsByClassName('active');
 for (let i = 0; i < section_highlighted.length; i++) {
     let section = section_highlighted[i]
@@ -95,12 +96,12 @@ for (let i = 0; i < section_highlighted.length; i++) {
         navItem.className = 'active-highlighted'
         section.className = 'active-highlighted'
     });
-        
+
     section.addEventListener('mouseout', function() {
         navItem.className = ''
-        section.className = 'active'  
+        section.className = 'active'
     });
-}  
+}
 
 /* Back to top button */
 myButton = document.getElementById("topButton");
@@ -131,13 +132,13 @@ function buttonFunction() {
 //         console.log('This section is being viewed');
 //         mouseEvent.setAttribute('style', 'color: red; font-size: 2em;');
 //     });
-    
+
 
 
 /**
  * End Global Variables
  * Start Helper Functions
- * 
+ *
 */
 
 
@@ -145,7 +146,7 @@ function buttonFunction() {
 /**
  * End Helper Functions
  * Begin Main Functions
- * 
+ *
 */
 
 // build the nav
@@ -160,10 +161,10 @@ function buttonFunction() {
 /**
  * End Main Functions
  * Begin Events
- * 
+ *
 */
 
-// Build menu 
+// Build menu
 
 // Scroll to section on link click
 
@@ -181,7 +182,7 @@ function buttonFunction() {
 //         //     event.target.style.color = '';
 //         // }, 500);
 //     }, false);
-    
+
 //     section.addEventListener('mouseout', function( event ) {
 //         section.className = 'active'
 //         // console.log(event)

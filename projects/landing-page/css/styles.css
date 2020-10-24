@@ -1,68 +1,6 @@
-/*
- *
- * CSS written based on SMACSS architecture.
- * To learn more, visit: http://smacss.com/
- * 
- * For simplicity, no reset or normalize is added. 
- * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
- *
-*/
+/* ---- Device Responsiveness Rules ---- */
 
-
-/* ---- Base Rules ---- */
-/* Mobile screen */
-/*.container {
-display: grid;
-height: 100vh;
-grid-template-columns: 1r;
-grid-template-rows: auto 1fr auto;
-grid-template-areas: 
-"hd"
-"main"
-"ft"
-}
-
-.page__header {
-    grid-area: hd;
-}
-
-.main_content {
-    grid-area: main;
-    overflow: auto;
-}
-
-.page_footer {
-    grid-area: ft;
-}
-/*Medium screen*/
- /*@media(min-width:800px) and (max-width: 1100px) {
-    .container {
-        display: grid;
-        height: 100vh;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 2fr 1fr;
-        grid-template: 
-        "hd hd hd hd hd hd hd hd"
-        "main main main main main main main main"
-        "ft ft ft ft ft ft ft ft"
-    }
-} 
-/*Large screen*/
- /*@media(min-width: 1101px) {
-    .container {
-        display: grid;
-        height: 100vh
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        grid-template: 
-        "hd hd hd hd hd hd hd hd"
-        "main main main main main main main main"
-        "ft ft ft ft ft ft ft ft"
-    }
-
-} */
-
-/*Mobile screen*/
+/*Mobile screen styles*/
 @media (max-width: 600px) {
     .container {
         font-size: 15px;
@@ -73,7 +11,7 @@ grid-template-areas:
         display: inline-block;
         font-size: 13px;
         font-weight: bold;
-        padding: 2em;
+        padding: 4em 2em;
     }
 
     .page__footer p {
@@ -85,7 +23,7 @@ grid-template-areas:
 
     h1 {
       font-size: 3em;
-      margin: 1em;
+      padding-bottom: 1em;
     }
 
     .image_container {
@@ -119,13 +57,9 @@ grid-template-areas:
         height: 25px;
         margin-left: 2em;
     }
-
-    /* ul {
-        display: flex;
-    } */
 }
 
-/*Medium screen*/
+/*Medium screen styles*/
 @media (min-width: 601px) and (max-width: 1100px) {
     .container {
         font-size: 18px;
@@ -134,10 +68,9 @@ grid-template-areas:
 
     .navbar__menu li {
         display: inline-block;
-        /* margin-left: 20px; */
         font-size: medium;
         font-weight: bold;
-        padding: 3em;
+        padding: 3.1em;
     }
 
     .page__footer p {
@@ -148,8 +81,7 @@ grid-template-areas:
     }
 
     h1 {
-        font-size: 3.5em;
-        padding: 1em;
+        font-size: 3em;
     }
 
     .image_container {
@@ -184,7 +116,7 @@ grid-template-areas:
     }
 }
 
- /*Large screen*/
+ /*Large screen styles*/
 @media (min-width: 1101px) {
     .container {
         font-size: 20px;
@@ -208,8 +140,7 @@ grid-template-areas:
     }
 
     h1 {
-      font-size: 5em;
-      padding-top: 1em;
+      font-size: 4em;
       text-align: center;
     }
 
@@ -283,10 +214,7 @@ p {
 /* ---- Layout Rules ---- */
 main {
     margin: 10vh 1em 10vh;
-}
-
-.main-hero {
-    padding-top: 3em;
+    padding-top: 1em;
 }
 
 section {
