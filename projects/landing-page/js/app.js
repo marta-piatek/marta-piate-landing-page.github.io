@@ -17,14 +17,15 @@
  * Define Global  variables
  *
  */
-const myNavigation = [];
-const h2Elements = document.getElementsByTagName("h2");
+const myNavigation = []
+const h2Elements = document.getElementsByTagName('h2');
 
-/* Dynamic navigation as an unordered list */
+// Add the titles of the sections to the myNavigation array
 for (let i = 0; i < h2Elements.length; i++) {
     myNavigation.push(h2Elements[i].innerText);
 }
 
+// Use the myNavigation array to build the navigation bar using the title of the sections
 const navList = document.querySelector('#navbar__list');
 for (let i=0; i < myNavigation.length; i++) {
     const anchor = document.createElement('a');
@@ -35,16 +36,16 @@ for (let i=0; i < myNavigation.length; i++) {
     section.appendChild(anchor);
     navList.appendChild(section);
 
-    // Event Listener to scroll to selected section from the Navigation Bar
-    anchor.addEventListener('click', function (event) {
+    // Scroll to selected section from the Navigation Bar when clicked
+    anchor.addEventListener('click', () => {
         const elementPosition = h2Elements[i].getBoundingClientRect().top;
         const navSize = document.getElementById('navbar__list').clientHeight;
 
         window.scrollBy(0, elementPosition - navSize);
     });
 
-    // Event Listener to scroll to selected section from the Navigation Bar
-    section.addEventListener('click', function (event) {
+    // Scroll to selected section from the Navigation Bar when clicked
+    section.addEventListener('click', () => {
         const elementPosition = h2Elements[i].getBoundingClientRect().top;
         const navSize = document.getElementById('navbar__list').clientHeight;
 
@@ -52,51 +53,52 @@ for (let i=0; i < myNavigation.length; i++) {
     });
 }
 
-/* Collapsible sections */
+// Set up an event listener to expand or collapse a section when clicked.
 let collapse = document.getElementsByClassName('collapsible');
 for (let i = 0; i < collapse.length; i++) {
-    collapse[i].addEventListener('click', function () {
+    collapse[i].addEventListener('click', function() {
         this.classList.toggle('activeSection');
         let text = this.nextElementSibling;
 
-        if (text.style.display === 'block') {
-            text.style.display = 'none';
-        } else {
-            text.style.display = 'block';
-        }
+        text.style.display = (text.style.display === 'block') ? 'none' : 'block';
     });
 }
 
+// Set up event listeners to highlight sections and corresponding navigation items when the user hovers over the section.
 const section_highlighted = document.getElementsByClassName('active');
 for (let i = 0; i < section_highlighted.length; i++) {
     let section = section_highlighted[i];
     const navItem = document.getElementById(`li__section${i+1}`);
 
-    section.addEventListener('mouseover', function() {
+    section.addEventListener('mouseover', () => {
         navItem.className = 'active-highlighted';
         section.className = 'active-highlighted';
     });
 
-    section.addEventListener('mouseout', function() {
+    section.addEventListener('mouseout', () => {
         navItem.className = '';
         section.className = 'active';
     });
 }
 
-/* Back to top button */
-myButton = document.getElementById("topButton");
-window.onscroll = function() {
-    scrollFunction();
-};
+const myButton = document.getElementById('topButton');
 
+// Set up function to be called when user starts scrolling
+window.onscroll = scrollFunction();
+
+/**
+ * @description Sets the back-to-top button's display style to 'block' so that the button is visible when the user scrolls below the fold of the page.
+ */
 function scrollFunction() {
-    if (document.documentElement.scrollTop > 20) {
-        myButton.style.display = "block";
-    } else {
-        myButton.style.display = "none";
-    }
+    myButton.style.display = (document.documentElement.scrollTop > 20) ? 'block' : 'none';
 }
 
+/**
+ * @description Sets the scrollTop property if the root element so that the page is scrolled back to the top.
+ * PS: eslint has been disabled for the function definition because it is not used in this file. The function
+ * is called in index.html
+ */
+// eslint-disable-next-line no-unused-vars
 function buttonFunction() {
     document.documentElement.scrollTop = 0;
 }
@@ -135,26 +137,3 @@ function buttonFunction() {
 // Scroll to section on link click
 
 // Set sections as active
-
-
-// for (let i = 1; i <= h2Elements.length; i++) {
-//     let section = document.getElementById(`section${i}`)
-
-//     section.addEventListener('mouseover', function( event ) {
-//         section.className = 'active_highlighted'
-//         // console.log(event)
-//         // event.target.style.color = 'purple';
-//         // setTimeout(function() {
-//         //     event.target.style.color = '';
-//         // }, 500);
-//     }, false);
-
-//     section.addEventListener('mouseout', function( event ) {
-//         section.className = 'active'
-//         // console.log(event)
-//         // event.target.style.color = 'purple';
-//         // setTimeout(function() {
-//         //     event.target.style.color = '';
-//         // }, 500);
-//     }, false);
-// }
